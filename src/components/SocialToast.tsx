@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { X, Sparkles, Globe } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
 
@@ -28,7 +27,7 @@ export const SocialToast: React.FC = () => {
   if (!mounted || !visible) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 w-72 sm:w-80 bg-white rounded-2xl p-4 shadow-2xl border border-slate-200 text-slate-800 text-xs relative overflow-hidden animate-in fade-in slide-in-from-bottom-3 duration-300">
+    <div className="fixed top-1/2 -translate-y-1/2 left-3 sm:left-6 z-50 w-72 sm:w-80 bg-white rounded-2xl p-4 shadow-2xl border border-slate-200 text-slate-800 text-xs relative overflow-hidden animate-in fade-in slide-in-from-left-3 duration-300">
       {/* Close Button */}
       <button
         onClick={() => setVisible(false)}
