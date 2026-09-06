@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Sparkles, Globe } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
@@ -18,78 +18,75 @@ const LinkedinIcon = () => (
 );
 
 export const SocialToast: React.FC = () => {
+  const [mounted, setMounted] = useState(false);
   const [visible, setVisible] = useState(true);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted || !visible) return null;
+
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          initial={{ opacity: 0, y: 20, scale: 0.95 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          exit={{ opacity: 0, y: 20, scale: 0.95 }}
-          transition={{ duration: 0.3 }}
-          className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 w-72 sm:w-80 bg-white rounded-2xl p-4 shadow-xl border border-slate-200 text-slate-800 text-xs relative overflow-hidden"
-        >
-          {/* Close Button */}
-          <button
-            onClick={() => setVisible(false)}
-            className="absolute top-2.5 right-2.5 p-1 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition-colors"
-            title="Close prompt"
+    <div className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 w-72 sm:w-80 bg-white rounded-2xl p-4 shadow-2xl border border-slate-200 text-slate-800 text-xs relative overflow-hidden animate-in fade-in slide-in-from-bottom-3 duration-300">
+      {/* Close Button */}
+      <button
+        onClick={() => setVisible(false)}
+        className="absolute top-2.5 right-2.5 p-1 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition-colors"
+        title="Close prompt"
+      >
+        <X className="w-3.5 h-3.5" />
+      </button>
+
+      <div className="flex items-center gap-2 mb-2 pr-6">
+        <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+          <Sparkles className="w-4 h-4 text-amber-500" />
+        </div>
+        <div>
+          <div className="font-extrabold text-slate-900 text-xs">Connect with GDG IIMT</div>
+          <div className="text-[10px] text-slate-500 font-medium">Follow for updates & community news</div>
+        </div>
+      </div>
+
+      <p className="text-[11px] text-slate-600 leading-relaxed mb-3">
+        Stay tuned for workshops, mentorship sessions & event announcements!
+      </p>
+
+      <div className="flex items-center gap-2 pt-1 border-t border-slate-100">
+        {eventConfig.socials.instagram && (
+          <a
+            href={eventConfig.socials.instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 py-1.5 px-2 rounded-xl bg-slate-50 hover:bg-pink-50 hover:text-pink-600 border border-slate-200/80 font-bold flex items-center justify-center gap-1 transition-all text-[11px]"
           >
-            <X className="w-3.5 h-3.5" />
-          </button>
-
-          <div className="flex items-center gap-2 mb-2 pr-6">
-            <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-              <Sparkles className="w-4 h-4 text-amber-500" />
-            </div>
-            <div>
-              <div className="font-extrabold text-slate-900 text-xs">Connect with GDG IIMT</div>
-              <div className="text-[10px] text-slate-500 font-medium">Follow for updates & community news</div>
-            </div>
-          </div>
-
-          <p className="text-[11px] text-slate-600 leading-relaxed mb-3">
-            Stay tuned for workshops, mentorship sessions & event announcements!
-          </p>
-
-          <div className="flex items-center gap-2 pt-1 border-t border-slate-100">
-            {eventConfig.socials.instagram && (
-              <a
-                href={eventConfig.socials.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-1.5 px-2 rounded-xl bg-slate-50 hover:bg-pink-50 hover:text-pink-600 border border-slate-200/80 font-bold flex items-center justify-center gap-1 transition-all text-[11px]"
-              >
-                <InstagramIcon />
-                <span>Instagram</span>
-              </a>
-            )}
-            {eventConfig.socials.linkedin && (
-              <a
-                href={eventConfig.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex-1 py-1.5 px-2 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 border border-slate-200/80 font-bold flex items-center justify-center gap-1 transition-all text-[11px]"
-              >
-                <LinkedinIcon />
-                <span>LinkedIn</span>
-              </a>
-            )}
-            {eventConfig.socials.gdgCommunity && (
-              <a
-                href={eventConfig.socials.gdgCommunity}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-1.5 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 border border-slate-200/80 flex items-center justify-center transition-all text-[11px]"
-                title="GDG Community Dashboard"
-              >
-                <Globe className="w-3.5 h-3.5 text-blue-600" />
-              </a>
-            )}
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+            <InstagramIcon />
+            <span>Instagram</span>
+          </a>
+        )}
+        {eventConfig.socials.linkedin && (
+          <a
+            href={eventConfig.socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 py-1.5 px-2 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 border border-slate-200/80 font-bold flex items-center justify-center gap-1 transition-all text-[11px]"
+          >
+            <LinkedinIcon />
+            <span>LinkedIn</span>
+          </a>
+        )}
+        {eventConfig.socials.gdgCommunity && (
+          <a
+            href={eventConfig.socials.gdgCommunity}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-1.5 rounded-xl bg-slate-50 hover:bg-blue-50 hover:text-blue-600 border border-slate-200/80 flex items-center justify-center transition-all text-[11px]"
+            title="GDG Community Dashboard"
+          >
+            <Globe className="w-3.5 h-3.5 text-blue-600" />
+          </a>
+        )}
+      </div>
+    </div>
   );
 };
