@@ -91,7 +91,7 @@ export interface EventConfig {
   }>;
 }
 
-export const UNSTOP_URL = "https://unstop.com/hackathons/devhack-iimtu-2026";
+export const UNSTOP_URL = "https://unstop.com/p/devhack-2026-gdg-on-campus-iimt-meerut-1750208";
 export const DEVFOLIO_URL = UNSTOP_URL; // Alias for single point of reference
 
 export const eventConfig: EventConfig = {
@@ -173,10 +173,9 @@ export const eventConfig: EventConfig = {
     specialRecognitionText: "Certificates and official recognition for contributors, organizers, and judges.",
   },
   socials: {
-    instagram: "https://instagram.com/gdg_iimtu",
-    linkedin: "https://linkedin.com/company/gdg-iimtu",
-    github: "https://github.com/gdg-iimtu",
-    gdgCommunity: "https://gdg.community.dev/iimt-university-meerut",
+    instagram: "https://www.instagram.com/gdg_iimt/",
+    linkedin: "https://www.linkedin.com/company/gdg-on-campus-iimt/",
+    gdgCommunity: "https://gdg.community.dev/gdg-on-campus-iimt-university-meerut-india/",
   },
   tracks: [
     {

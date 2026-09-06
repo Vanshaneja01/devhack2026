@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Compass, Layers, ArrowUpRight } from "lucide-react";
+import { Compass } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
 
 export const Tracks: React.FC = () => {
@@ -24,7 +24,7 @@ export const Tracks: React.FC = () => {
 
         {/* 4 Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {eventConfig.tracks.map((track, idx) => (
+          {eventConfig.tracks.map((track) => (
             <motion.div
               key={track.id}
               whileHover={{ y: -8, scale: 1.02 }}
@@ -59,9 +59,14 @@ export const Tracks: React.FC = () => {
                   <Compass className="w-3.5 h-3.5 text-blue-600" />
                   <span>Open Domain</span>
                 </span>
-                <span className="text-blue-600 group-hover:translate-x-1 transition-transform">
+                <a
+                  href={eventConfig.unstopUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 group-hover:translate-x-1 transition-transform font-bold"
+                >
                   Explore →
-                </span>
+                </a>
               </div>
             </motion.div>
           ))}

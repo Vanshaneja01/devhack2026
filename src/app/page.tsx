@@ -17,6 +17,7 @@ import { Venue } from "@/components/Venue";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { DevCatWidget } from "@/components/DevCatWidget";
+import { SocialToast } from "@/components/SocialToast";
 
 export default function Home() {
   return (
@@ -39,6 +40,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <DevCatWidget />
+      <SocialToast />
     </main>
   );
 }
