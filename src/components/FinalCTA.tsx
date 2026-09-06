@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { ArrowRight, Sparkles, MapPin, Calendar } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
@@ -19,7 +18,7 @@ export const FinalCTA: React.FC = () => {
   return (
     <section className="py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white p-10 sm:p-16 shadow-2xl relative overflow-hidden text-center flex flex-col items-center justify-center space-y-6">
+        <div className="rounded-3xl bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white p-8 sm:p-14 md:p-16 shadow-2xl relative overflow-hidden text-center flex flex-col items-center justify-center space-y-6">
           {/* Background Decorative Rings */}
           <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
           <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
@@ -39,13 +38,13 @@ export const FinalCTA: React.FC = () => {
 
           <div className="pt-4">
             <a
-              href={eventConfig.devfolioUrl}
+              href={eventConfig.unstopUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={triggerConfetti}
-              className="inline-flex items-center gap-3 rounded-2xl bg-white hover:bg-slate-100 text-blue-700 font-extrabold text-lg sm:text-xl px-10 py-5 shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
+              className="inline-flex items-center gap-3 rounded-2xl bg-white hover:bg-slate-100 text-blue-700 font-black text-lg sm:text-xl px-9 py-4.5 shadow-xl hover:shadow-2xl hover:scale-105 transition-all"
             >
-              <span>🚀 REGISTER ON DEVFOLIO</span>
+              <span>🚀 REGISTER ON UNSTOP</span>
               <ArrowRight className="w-6 h-6" />
             </a>
           </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight, Code2 } from "lucide-react";
+import Image from "next/image";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
 
 export const Navbar: React.FC = () => {
@@ -35,41 +36,47 @@ export const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs py-3"
-          : "bg-white/80 backdrop-blur-sm py-4 border-b border-slate-100/60"
+          ? "bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-xs py-2.5"
+          : "bg-white/90 backdrop-blur-sm py-3 border-b border-slate-100/80"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          {/* Logo Area */}
+        <div className="flex items-center justify-between gap-4">
+          {/* Logo Area: DevHack Official Logo & GDG Logo Lockup */}
           <a
             href="#hero"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-2.5 group shrink-0"
+            className="flex items-center gap-3 group shrink-0"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 via-indigo-600 to-emerald-500 p-0.5 shadow-xs">
-              <div className="w-full h-full bg-white rounded-[10px] flex items-center justify-center">
-                <Code2 className="w-5 h-5 text-blue-600 group-hover:scale-110 transition-transform" />
-              </div>
+            {/* Official DevHack Logo Image */}
+            <div className="relative h-9 sm:h-11 w-auto aspect-[2.2/1] overflow-hidden rounded-lg">
+              <Image
+                src="/images/devhack-logo.jpg"
+                alt="DevHack IIMT University Logo"
+                width={120}
+                height={50}
+                className="h-full w-auto object-contain group-hover:scale-105 transition-transform"
+                priority
+              />
             </div>
 
-            <div className="flex flex-col">
-              <div className="flex items-center gap-1 font-black tracking-tight text-slate-900 text-base sm:text-lg">
-                <span>DEVHACK</span>
-                <span className="text-blue-600">IIMTU</span>
-                <span className="text-[10px] sm:text-xs px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 font-bold border border-slate-200">
-                  2026
-                </span>
-              </div>
-              <div className="flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-slate-500">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-blue-500"></span>
-                <span>GDG on Campus – IIMT</span>
-              </div>
+            <span className="hidden sm:inline-block text-slate-300 font-light">|</span>
+
+            {/* Official GDG Logo Image */}
+            <div className="hidden sm:flex items-center h-7 w-auto">
+              <Image
+                src="/images/gdg-logo.png"
+                alt="Google Developer Group On Campus - IIMT, Meerut"
+                width={160}
+                height={40}
+                className="h-full w-auto object-contain"
+                priority
+              />
             </div>
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70 text-sm font-semibold">
+          {/* Desktop Navigation Links */}
+          <nav className="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70 text-sm font-semibold">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -81,15 +88,15 @@ export const Navbar: React.FC = () => {
             ))}
           </nav>
 
-          {/* Right Side Actions */}
+          {/* Right Side Actions: Unstop CTA */}
           <div className="flex items-center gap-3">
             <a
-              href={eventConfig.devfolioUrl}
+              href={eventConfig.unstopUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden sm:flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs sm:text-sm font-extrabold px-5 py-2.5 shadow-xs transition-all"
+              className="flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2 sm:py-2.5 shadow-md shadow-blue-500/20 transition-all hover:scale-105"
             >
-              <span>Register on Devfolio</span>
+              <span>Register on Unstop</span>
               <ArrowUpRight className="w-4 h-4" />
             </a>
 
@@ -97,7 +104,7 @@ export const Navbar: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 active:bg-slate-100 text-slate-800 shadow-2xs transition-all focus:outline-none"
+              className="xl:hidden p-2 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 active:bg-slate-100 text-slate-800 shadow-2xs transition-all focus:outline-none"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? (
@@ -112,7 +119,18 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Navigation Dropdown Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-2xl px-5 py-6 space-y-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="xl:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-2xl px-5 py-6 space-y-4 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+          {/* Mobile GDG Brand Display */}
+          <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100 flex items-center justify-center">
+            <Image
+              src="/images/gdg-logo.png"
+              alt="Google Developer Group On Campus - IIMT, Meerut"
+              width={200}
+              height={45}
+              className="h-7 w-auto object-contain"
+            />
+          </div>
+
           <div className="grid grid-cols-2 gap-2 pb-4 border-b border-slate-100">
             {navLinks.map((link) => (
               <a
@@ -126,15 +144,15 @@ export const Navbar: React.FC = () => {
             ))}
           </div>
 
-          <div className="pt-2">
+          <div className="pt-1">
             <a
-              href={eventConfig.devfolioUrl}
+              href={eventConfig.unstopUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className="w-full flex items-center justify-center gap-2 bg-blue-600 active:bg-blue-700 text-white font-extrabold py-3.5 rounded-xl shadow-md text-sm"
             >
-              🚀 REGISTER ON DEVFOLIO
+              🚀 REGISTER ON UNSTOP
             </a>
           </div>
         </div>

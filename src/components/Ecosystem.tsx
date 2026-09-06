@@ -1,8 +1,9 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Building2, Users2, Rocket, Award, ShieldCheck } from "lucide-react";
+import { Rocket, Users2 } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
 
 export const Ecosystem: React.FC = () => {
@@ -55,8 +56,14 @@ export const Ecosystem: React.FC = () => {
             className="rounded-3xl border border-slate-200 p-8 bg-gradient-to-br from-slate-50 via-white to-emerald-50/30 shadow-sm hover:shadow-xl transition-all relative flex flex-col justify-between"
           >
             <div>
-              <div className="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-md shadow-emerald-500/20">
-                🌐
+              <div className="h-12 w-auto mb-6 flex items-center">
+                <Image
+                  src="/images/gdg-logo.png"
+                  alt="Google Developer Group Logo"
+                  width={220}
+                  height={50}
+                  className="h-full w-auto object-contain"
+                />
               </div>
               <span className="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider">
                 Organizing Developer Community

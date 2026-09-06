@@ -1,4 +1,5 @@
 export interface EventConfig {
+  unstopUrl: string;
   devfolioUrl: string;
   title: string;
   tagline: string;
@@ -90,10 +91,12 @@ export interface EventConfig {
   }>;
 }
 
-export const DEVFOLIO_URL = "https://devhack-iimtu-2026.devfolio.co";
+export const UNSTOP_URL = "https://unstop.com/hackathons/devhack-iimtu-2026";
+export const DEVFOLIO_URL = UNSTOP_URL; // Alias for single point of reference
 
 export const eventConfig: EventConfig = {
-  devfolioUrl: DEVFOLIO_URL,
+  unstopUrl: UNSTOP_URL,
+  devfolioUrl: UNSTOP_URL,
   title: "DEVHACK IIMTU 2026",
   tagline: "BUILD FOR IMPACT",
   subtitle: "A developer-focused hackathon where ideas turn into real-world solutions.",
@@ -128,7 +131,7 @@ export const eventConfig: EventConfig = {
     expectedDevelopers: "200+",
   },
   prizeConfig: {
-    showPrizePool: false, // Set to true and provide prizePoolAmount when officially finalized
+    showPrizePool: false,
     prizePoolAmount: "",
     categories: [
       {
@@ -219,7 +222,7 @@ export const eventConfig: EventConfig = {
       date: "10",
       month: "SEPTEMBER",
       title: "Registrations & Team Formation Open",
-      description: "Sign up on Devfolio, build your team, or find teammates to start brainstorming your ideas.",
+      description: "Sign up on Unstop, build your team, or find teammates to start brainstorming your ideas.",
       badge: "Kickoff",
       isKeyMilestone: true,
     },
@@ -387,7 +390,7 @@ export const eventConfig: EventConfig = {
     },
     {
       question: "Where do I register?",
-      answer: "You can register directly on Devfolio by clicking any 'REGISTER ON DEVFOLIO' button on this site.",
+      answer: "You can register directly on Unstop by clicking any 'REGISTER ON UNSTOP' button on this site.",
     },
   ],
 };

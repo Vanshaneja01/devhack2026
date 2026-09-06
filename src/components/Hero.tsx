@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import {
   Calendar,
@@ -9,6 +11,9 @@ import {
   ChevronDown,
   Sparkles,
   Globe2,
+  Code2,
+  Terminal as TerminalIcon,
+  Zap,
 } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
 import { DevTerminal } from "./DevTerminal";
@@ -16,8 +21,8 @@ import { DevTerminal } from "./DevTerminal";
 export const Hero: React.FC = () => {
   const triggerConfetti = () => {
     confetti({
-      particleCount: 80,
-      spread: 70,
+      particleCount: 90,
+      spread: 80,
       origin: { y: 0.6 },
       colors: ["#4285F4", "#EA4335", "#FBBC05", "#34A853"],
     });
@@ -28,31 +33,53 @@ export const Hero: React.FC = () => {
       id="hero"
       className="relative pt-32 sm:pt-36 md:pt-44 pb-16 md:pb-28 overflow-hidden bg-white"
     >
-      {/* Background Subtle Dot Pattern */}
-      <div className="absolute inset-0 bg-dot-pattern opacity-60 pointer-events-none"></div>
+      {/* Background Grid & Particles */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none"></div>
 
-      {/* Decorative Orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 sm:w-96 sm:h-96 bg-blue-400/15 rounded-full filter blur-3xl pointer-events-none -z-10 animate-pulse"></div>
-      <div className="absolute top-40 right-10 w-72 h-72 sm:w-96 sm:h-96 bg-emerald-400/15 rounded-full filter blur-3xl pointer-events-none -z-10 animate-pulse delay-1000"></div>
+      {/* Glow Orbs */}
+      <div className="absolute top-16 left-10 w-72 h-72 sm:w-96 sm:h-96 bg-blue-400/20 rounded-full filter blur-3xl pointer-events-none -z-10 animate-pulse"></div>
+      <div className="absolute top-36 right-10 w-72 h-72 sm:w-96 sm:h-96 bg-emerald-400/20 rounded-full filter blur-3xl pointer-events-none -z-10 animate-pulse delay-1000"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
-          {/* Left Column: Headlines & CTAs */}
-          <div className="lg:col-span-7 flex flex-col space-y-6 text-left">
-            {/* Top Google Colors Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100/90 border border-slate-200/90 shadow-2xs text-xs font-bold text-slate-800 w-fit max-w-full">
-              <div className="flex items-center gap-1 shrink-0">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#4285F4]"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-[#EA4335]"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-[#FBBC05]"></span>
-                <span className="w-2.5 h-2.5 rounded-full bg-[#34A853]"></span>
+          {/* Left Column: Headlines & Logos */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-7 flex flex-col space-y-6 text-left"
+          >
+            {/* Top Logo Banner Lockup */}
+            <div className="flex flex-wrap items-center gap-3 p-2 px-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-2xs w-fit max-w-full">
+              <div className="h-7 sm:h-8 w-auto">
+                <Image
+                  src="/images/gdg-logo.png"
+                  alt="Google Developer Group On Campus - IIMT, Meerut"
+                  width={180}
+                  height={45}
+                  className="h-full w-auto object-contain"
+                />
               </div>
-              <span className="text-slate-300">|</span>
-              <span className="truncate text-slate-700">GDG on Campus – IIMT, Meerut</span>
+              <span className="text-slate-300 font-light">|</span>
+              <div className="flex items-center gap-1 text-xs font-bold text-slate-700">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <span>Organized by GDG on Campus – IIMT, Meerut</span>
+              </div>
             </div>
 
-            {/* Main Title & Tagline */}
-            <div className="space-y-2">
+            {/* Official DevHack Hero Brand Image & Titles */}
+            <div className="space-y-3">
+              <div className="relative h-16 sm:h-20 md:h-24 w-auto max-w-md">
+                <Image
+                  src="/images/devhack-logo.jpg"
+                  alt="DevHack IIMT University, Meerut"
+                  width={380}
+                  height={100}
+                  className="h-full w-auto object-contain object-left"
+                  priority
+                />
+              </div>
+
               <h1 className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-slate-900 leading-tight">
                 DEVHACK <span className="text-blue-600">IIMTU</span> 2026
               </h1>
@@ -66,7 +93,7 @@ export const Hero: React.FC = () => {
               {eventConfig.subtitle}
             </p>
 
-            {/* Dates & Location Card */}
+            {/* Event Dates & Location Card */}
             <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-2xs space-y-3">
               {/* Date & Location Line */}
               <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 text-sm font-bold text-slate-900">
@@ -93,16 +120,16 @@ export const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* Action Buttons: Unstop CTA */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
               <a
-                href={eventConfig.devfolioUrl}
+                href={eventConfig.unstopUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={triggerConfetti}
-                className="rounded-2xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-black text-base px-8 py-4 text-center shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2.5"
+                className="rounded-2xl bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-black text-base px-8 py-4 text-center shadow-lg shadow-blue-500/25 transition-all flex items-center justify-center gap-2.5 hover:scale-105"
               >
-                <span>🚀 REGISTER ON DEVFOLIO</span>
+                <span>🚀 REGISTER ON UNSTOP</span>
                 <ArrowRight className="w-5 h-5" />
               </a>
 
@@ -114,12 +141,17 @@ export const Hero: React.FC = () => {
                 <ChevronDown className="w-5 h-5 text-slate-500" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Right Column: Dev Terminal */}
-          <div className="lg:col-span-5 relative mt-4 lg:mt-0">
+          {/* Right Column: Code Terminal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="lg:col-span-5 relative mt-4 lg:mt-0"
+          >
             <DevTerminal />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

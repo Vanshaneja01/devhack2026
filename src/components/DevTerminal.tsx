@@ -20,6 +20,7 @@ const hackathon = new Hackathon({
     day1: "18 SEPT - ONLINE BUILD",
     day2: "19 SEPT - OFFLINE FINALE"
   },
+  registration: "UNSTOP",
   tracks: ["AI", "WEB", "APP", "CLOUD"]
 });
 
@@ -29,7 +30,7 @@ hackathon.start(); // 🚀 Ready!`;
 [✓] Connecting to GDG on Campus - IIMT...
 [✓] Venue: IIMT University, Meerut
 [✓] 18 Sept (Online) -> 19 Sept (Offline)
-[✓] Devfolio Registration: READY 🚀`;
+[✓] Unstop Registration: READY 🚀`;
 
   useEffect(() => {
     let index = 0;
