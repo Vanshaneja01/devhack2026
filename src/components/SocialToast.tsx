@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Sparkles, Globe } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
@@ -18,22 +18,7 @@ const LinkedinIcon = () => (
 );
 
 export const SocialToast: React.FC = () => {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const isDismissed = sessionStorage.getItem("devhack_social_toast_dismissed");
-    if (!isDismissed) {
-      const timer = setTimeout(() => {
-        setVisible(true);
-      }, 3500);
-      return () => clearTimeout(timer);
-    }
-  }, []);
-
-  const handleDismiss = () => {
-    setVisible(false);
-    sessionStorage.setItem("devhack_social_toast_dismissed", "true");
-  };
+  const [visible, setVisible] = useState(true);
 
   return (
     <AnimatePresence>
@@ -43,11 +28,11 @@ export const SocialToast: React.FC = () => {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ duration: 0.3 }}
-          className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-40 w-72 sm:w-80 bg-white rounded-2xl p-4 shadow-xl border border-slate-200 text-slate-800 text-xs relative overflow-hidden"
+          className="fixed bottom-4 left-4 sm:bottom-6 sm:left-6 z-50 w-72 sm:w-80 bg-white rounded-2xl p-4 shadow-xl border border-slate-200 text-slate-800 text-xs relative overflow-hidden"
         >
           {/* Close Button */}
           <button
-            onClick={handleDismiss}
+            onClick={() => setVisible(false)}
             className="absolute top-2.5 right-2.5 p-1 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition-colors"
             title="Close prompt"
           >
