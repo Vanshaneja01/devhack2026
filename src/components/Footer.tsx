@@ -91,8 +91,15 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
-          <div>
-            © 2026 DevHack IIMTU. All rights reserved.
+          <div className="flex flex-wrap items-center gap-2">
+            <span>© 2026 DevHack IIMTU. All rights reserved.</span>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <a
+              href={eventConfig.siteUrl}
+              className="text-slate-400 hover:text-blue-400 transition-colors font-mono"
+            >
+              {eventConfig.domain}
+            </a>
           </div>
           <div className="flex items-center gap-1.5 text-slate-400">
             <span>Crafted with</span>
