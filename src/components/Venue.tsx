@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { MapPin, Navigation, ExternalLink, Building, CheckCircle2 } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
@@ -70,8 +71,14 @@ export const Venue: React.FC = () => {
 
           {/* Right Column: Abstract Campus Visual graphic */}
           <div className="md:col-span-5 bg-gradient-to-br from-blue-900 via-indigo-900 to-slate-950 p-8 flex flex-col items-center justify-center text-center relative overflow-hidden border-t md:border-t-0 md:border-l border-slate-800">
-            <div className="w-24 h-24 rounded-3xl bg-white/10 border border-white/20 flex items-center justify-center text-5xl mb-4 backdrop-blur-md shadow-xl">
-              🏫
+            <div className="h-24 sm:h-28 w-auto mb-5 px-6 py-3 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center backdrop-blur-md shadow-xl">
+              <Image
+                src="/images/iimtu-logo.webp"
+                alt="IIMT University Meerut Logo"
+                width={260}
+                height={120}
+                className="h-full w-auto object-contain"
+              />
             </div>
             <div className="text-xl font-bold text-white mb-1">
               IIMT University Campus

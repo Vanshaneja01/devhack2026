@@ -31,8 +31,14 @@ export const Ecosystem: React.FC = () => {
             className="rounded-3xl border border-slate-200 p-8 bg-gradient-to-br from-slate-50 via-white to-blue-50/30 shadow-sm hover:shadow-xl transition-all relative flex flex-col justify-between"
           >
             <div>
-              <div className="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-2xl font-bold mb-6 shadow-md shadow-blue-500/20">
-                🏛️
+              <div className="h-12 w-auto mb-6 flex items-center">
+                <Image
+                  src="/images/incub-logo.png"
+                  alt="IIMT Business Incubation Foundation Logo"
+                  width={220}
+                  height={50}
+                  className="h-full w-auto object-contain"
+                />
               </div>
               <span className="px-2.5 py-1 rounded-md bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-wider">
                 Incubation & Innovation Partner
