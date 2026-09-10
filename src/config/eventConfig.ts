@@ -1,4 +1,6 @@
 export interface EventConfig {
+  domain: string;
+  siteUrl: string;
   unstopUrl: string;
   devfolioUrl: string;
   title: string;
@@ -91,10 +93,15 @@ export interface EventConfig {
   }>;
 }
 
+export const SITE_DOMAIN = "events2226.co.in";
+export const SITE_URL = `https://${SITE_DOMAIN}`;
+
 export const UNSTOP_URL = "https://unstop.com/p/devhack-2026-gdg-on-campus-iimt-meerut-1750208";
 export const DEVFOLIO_URL = UNSTOP_URL; // Alias for single point of reference
 
 export const eventConfig: EventConfig = {
+  domain: SITE_DOMAIN,
+  siteUrl: SITE_URL,
   unstopUrl: UNSTOP_URL,
   devfolioUrl: UNSTOP_URL,
   title: "DEVHACK IIMTU 2026",
