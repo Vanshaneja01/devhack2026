@@ -29,7 +29,7 @@ export const About: React.FC = () => {
           <motion.div
             whileHover={{ y: -6 }}
             transition={{ duration: 0.2 }}
-            className="group rounded-3xl bg-gradient-to-b from-slate-50 to-white border border-slate-200 p-8 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all relative overflow-hidden flex flex-col justify-between"
+            className="group rounded-3xl bg-gradient-to-b from-slate-50 to-white border border-slate-200 p-6 sm:p-8 shadow-sm hover:shadow-xl hover:border-blue-300 transition-all relative overflow-hidden flex flex-col justify-between"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
 
@@ -71,7 +71,7 @@ export const About: React.FC = () => {
           <motion.div
             whileHover={{ y: -6 }}
             transition={{ duration: 0.2 }}
-            className="group rounded-3xl bg-gradient-to-b from-slate-50 to-white border border-slate-200 p-8 shadow-sm hover:shadow-xl hover:border-emerald-300 transition-all relative overflow-hidden flex flex-col justify-between"
+            className="group rounded-3xl bg-gradient-to-b from-slate-50 to-white border border-slate-200 p-6 sm:p-8 shadow-sm hover:shadow-xl hover:border-emerald-300 transition-all relative overflow-hidden flex flex-col justify-between"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-bl-full pointer-events-none group-hover:scale-110 transition-transform"></div>
 

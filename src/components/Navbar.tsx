@@ -21,6 +21,18 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent background scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   const navLinks = [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
@@ -46,10 +58,10 @@ export const Navbar: React.FC = () => {
           <a
             href="#hero"
             onClick={() => setMobileMenuOpen(false)}
-            className="flex items-center gap-3 group shrink-0"
+            className="flex items-center gap-2 sm:gap-3 group shrink-0"
           >
             {/* Official DevHack Logo Image */}
-            <div className="relative h-9 sm:h-11 w-auto aspect-[2.2/1] overflow-hidden rounded-lg">
+            <div className="relative h-8 sm:h-10 w-auto aspect-[2.2/1] overflow-hidden rounded-lg">
               <Image
                 src="/images/devhack-logo.jpg"
                 alt="DevHack IIMT University Logo"
@@ -63,7 +75,7 @@ export const Navbar: React.FC = () => {
             <span className="hidden sm:inline-block text-slate-300 font-light">|</span>
 
             {/* Official GDG Logo Image */}
-            <div className="hidden sm:flex items-center h-7 w-auto">
+            <div className="hidden sm:flex items-center h-6 sm:h-7 w-auto">
               <Image
                 src="/images/gdg-logo.png"
                 alt="Google Developer Group On Campus - IIMT, Meerut"
@@ -89,15 +101,16 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Right Side Actions: Unstop CTA */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
               href={eventConfig.unstopUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs sm:text-sm font-extrabold px-4 sm:px-5 py-2 sm:py-2.5 shadow-md shadow-blue-500/20 transition-all hover:scale-105"
+              className="flex items-center gap-1.5 sm:gap-2 rounded-full bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs sm:text-sm font-extrabold px-3.5 sm:px-5 py-2 sm:py-2.5 shadow-md shadow-blue-500/20 transition-all hover:scale-105"
             >
-              <span>Register on Unstop</span>
-              <ArrowUpRight className="w-4 h-4" />
+              <span className="hidden xs:inline">Register on Unstop</span>
+              <span className="xs:hidden">Register</span>
+              <ArrowUpRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </a>
 
             {/* Mobile Hamburger Button */}
@@ -117,9 +130,17 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
+      {/* Backdrop overlay for mobile menu */}
+      {mobileMenuOpen && (
+        <div
+          className="xl:hidden fixed inset-0 top-[57px] bg-slate-900/40 backdrop-blur-xs z-40 transition-opacity"
+          onClick={() => setMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Mobile Navigation Dropdown Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-2xl px-5 py-6 space-y-4 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="xl:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-2xl px-5 py-6 space-y-4 z-50 animate-in fade-in slide-in-from-top-2 duration-200 max-h-[calc(100vh-65px)] overflow-y-auto">
           {/* Mobile GDG Brand Display */}
           <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100 flex items-center justify-center">
             <Image
@@ -137,9 +158,10 @@ export const Navbar: React.FC = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-3 rounded-xl text-sm font-bold text-slate-800 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors border border-slate-100"
+                className="px-4 py-3 rounded-xl text-sm font-bold text-slate-800 bg-slate-50 hover:bg-blue-50 hover:text-blue-600 transition-colors border border-slate-100 flex items-center justify-between"
               >
-                {link.name}
+                <span>{link.name}</span>
+                <span className="text-slate-400 text-xs">→</span>
               </a>
             ))}
           </div>

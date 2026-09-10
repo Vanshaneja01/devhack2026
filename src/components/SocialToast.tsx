@@ -27,12 +27,13 @@ export const SocialToast: React.FC = () => {
   if (!mounted || !visible) return null;
 
   return (
-    <div className="fixed top-1/2 -translate-y-1/2 left-3 sm:left-6 z-50 w-72 sm:w-80 bg-white rounded-2xl p-4 shadow-2xl border border-slate-200 text-slate-800 text-xs relative overflow-hidden animate-in fade-in slide-in-from-left-3 duration-300">
+    <div className="fixed bottom-4 left-4 right-4 sm:right-auto sm:left-6 sm:bottom-6 z-40 sm:w-80 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-slate-200/90 text-slate-800 text-xs overflow-hidden transition-all">
       {/* Close Button */}
       <button
         onClick={() => setVisible(false)}
-        className="absolute top-2.5 right-2.5 p-1 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition-colors"
+        className="absolute top-2.5 right-2.5 p-1.5 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100 transition-colors"
         title="Close prompt"
+        aria-label="Close social toast"
       >
         <X className="w-3.5 h-3.5" />
       </button>
