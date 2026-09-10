@@ -93,7 +93,7 @@ export interface EventConfig {
   }>;
 }
 
-export const SITE_DOMAIN = "events2226.co.in";
+export const SITE_DOMAIN = "events2026.co.in";
 export const SITE_URL = `https://${SITE_DOMAIN}`;
 
 export const UNSTOP_URL = "https://unstop.com/p/devhack-2026-gdg-on-campus-iimt-meerut-1750208";
