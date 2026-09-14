@@ -63,10 +63,10 @@ export const Hero: React.FC = () => {
               <span className="text-slate-300 font-light">|</span>
               <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
                 </span>
-                <span>Registrations Open</span>
+                <span>Registrations Closed</span>
               </div>
             </div>
 
