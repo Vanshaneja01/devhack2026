@@ -9,14 +9,20 @@ interface Partner {
 
 interface TierGroup {
   tier: string;
+  badgeBg: string;
+  badgeText: string;
+  badgeBorder: string;
+  cardSize: string;
   members: Partner[];
-  sizeClass?: string;
 }
 
 const partnerGroups: TierGroup[] = [
   {
     tier: "Powered By",
-    sizeClass: "h-16 md:h-20 w-48 md:w-56",
+    badgeBg: "bg-blue-50",
+    badgeText: "text-blue-700",
+    badgeBorder: "border-blue-200",
+    cardSize: "w-72 sm:w-80 h-32",
     members: [
       {
         name: "Unstop",
@@ -27,7 +33,10 @@ const partnerGroups: TierGroup[] = [
   },
   {
     tier: "Platform Partner",
-    sizeClass: "h-12 md:h-14 w-40 md:w-48",
+    badgeBg: "bg-indigo-50",
+    badgeText: "text-indigo-700",
+    badgeBorder: "border-indigo-200",
+    cardSize: "w-64 sm:w-72 h-28",
     members: [
       {
         name: "Work2Hire",
@@ -38,7 +47,10 @@ const partnerGroups: TierGroup[] = [
   },
   {
     tier: "Community Partners",
-    sizeClass: "h-12 md:h-14 w-36 md:w-44",
+    badgeBg: "bg-slate-100",
+    badgeText: "text-slate-700",
+    badgeBorder: "border-slate-200",
+    cardSize: "w-56 sm:w-60 h-28",
     members: [
       {
         name: "Event dev X",
@@ -64,44 +76,53 @@ const partnerGroups: TierGroup[] = [
   },
 ];
 
-export default function Collaborators() {
+export function Collaborators() {
   return (
-    <section id="collaborators" className="py-20 bg-black/60 relative overflow-hidden">
+    <section id="collaborators" className="py-20 bg-[#FAFAFC] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-14">
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white uppercase">
-            Our <span className="text-emerald-400">Collaborators</span>
+        
+        {/* Header matching Prizes section style */}
+        <div className="text-center mb-16">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-orange-50 text-orange-600 border border-orange-200 shadow-sm">
+            Partners & Collaborators
+          </span>
+
+          <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
+            OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-orange-500">COLLABORATORS</span>
           </h2>
-          <p className="mt-3 text-neutral-400 max-w-xl mx-auto text-sm sm:text-base">
+          <p className="mt-3 text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
             Backed by incredible industry platforms and student developer communities.
           </p>
         </div>
 
+        {/* Partner Tiers */}
         <div className="space-y-12">
           {partnerGroups.map((group) => (
             <div key={group.tier} className="text-center">
-              <span className="inline-block text-xs uppercase tracking-widest text-neutral-400 font-semibold mb-6 px-4 py-1 rounded-full border border-neutral-800 bg-neutral-900/60">
+              <span
+                className={`inline-block text-xs uppercase tracking-wider font-semibold mb-6 px-3.5 py-1 rounded-full border ${group.badgeBg} ${group.badgeText} ${group.badgeBorder}`}
+              >
                 {group.tier}
               </span>
 
-              <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+              <div className="flex flex-wrap items-center justify-center gap-5">
                 {group.members.map((partner) => (
                   <a
                     key={partner.name}
                     href={partner.url || "#"}
                     target={partner.url && partner.url !== "#" ? "_blank" : "_self"}
                     rel="noreferrer"
-                    className="group flex flex-col items-center justify-center p-4 rounded-xl border border-neutral-800/80 bg-neutral-900/40 hover:border-emerald-500/40 hover:bg-neutral-900/90 transition-all duration-300"
+                    className={`group relative flex flex-col items-center justify-center p-5 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-400 hover:-translate-y-1 transition-all duration-300 ${group.cardSize}`}
                   >
-                    <div className={`relative ${group.sizeClass} flex items-center justify-center`}>
+                    <div className="relative w-full h-14 flex items-center justify-center">
                       <Image
                         src={partner.logo}
                         alt={partner.name}
                         fill
-                        className="object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                        className="object-contain transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
-                    <span className="mt-2 text-xs font-medium text-neutral-400 group-hover:text-white transition-colors">
+                    <span className="mt-2 text-xs font-medium text-slate-500 group-hover:text-blue-600 transition-colors">
                       {partner.name}
                     </span>
                   </a>
@@ -110,7 +131,10 @@ export default function Collaborators() {
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
 }
+
+export default Collaborators;
