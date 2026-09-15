@@ -6,6 +6,7 @@ import { ThemeSection } from "@/components/ThemeSection";
 import { Tracks } from "@/components/Tracks";
 import { Timeline } from "@/components/Timeline";
 import { Prizes } from "@/components/Prizes";
+import { Collaborators } from "@/components/Collaborators";
 import { Judging } from "@/components/Judging";
 import { Participants } from "@/components/Participants";
 import { WhyDevHack } from "@/components/WhyDevHack";
@@ -29,6 +30,7 @@ export default function Home() {
       <Tracks />
       <Timeline />
       <Prizes />
+      <Collaborators />
       <Judging />
       <Participants />
       <WhyDevHack />
