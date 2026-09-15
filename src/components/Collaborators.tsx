@@ -20,7 +20,7 @@ const partnerGroups: TierGroup[] = [
     members: [
       {
         name: "Unstop",
-        logo: "/images/collaborators/unstop.png",
+        logo: "/images/unstop.png",
         url: "https://unstop.com",
       },
     ],
@@ -31,7 +31,7 @@ const partnerGroups: TierGroup[] = [
     members: [
       {
         name: "Work2Hire",
-        logo: "/images/collaborators/w2h.png",
+        logo: "/images/w2h.png",
         url: "#",
       },
     ],
@@ -42,22 +42,22 @@ const partnerGroups: TierGroup[] = [
     members: [
       {
         name: "Event dev X",
-        logo: "/images/collaborators/eventdevx.png",
+        logo: "/images/eventdevx.png",
         url: "#",
       },
       {
         name: "Tech4Hack",
-        logo: "/images/collaborators/tech4hack.png",
+        logo: "/images/tech4hack.png",
         url: "#",
       },
       {
         name: "Builders Hub",
-        logo: "/images/collaborators/buildershub.png",
+        logo: "/images/buildershub.png",
         url: "#",
       },
       {
         name: "GeeksforGeeks",
-        logo: "/images/collaborators/gfg.png",
+        logo: "/images/gfg.png",
         url: "https://www.geeksforgeeks.org",
       },
     ],
