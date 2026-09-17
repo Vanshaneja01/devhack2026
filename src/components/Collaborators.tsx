@@ -68,7 +68,7 @@ const partnerGroups: TierGroup[] = [
         url: "#",
       },
       {
-        name: "GeeksforGeeks",
+        name: "GeeksforGeeks MIET",
         logo: "/images/gfg.png",
         url: "https://www.geeksforgeeks.org",
       },
