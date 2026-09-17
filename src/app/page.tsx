@@ -7,6 +7,7 @@ import { Tracks } from "@/components/Tracks";
 import { Timeline } from "@/components/Timeline";
 import { Prizes } from "@/components/Prizes";
 import Collaborators from "@/components/Collaborators";
+import JudgesAndSpeakers from "@/components/JudgesAndSpeakers";
 import { Judging } from "@/components/Judging";
 import { Participants } from "@/components/Participants";
 import { WhyDevHack } from "@/components/WhyDevHack";
@@ -31,6 +32,7 @@ export default function Home() {
       <Timeline />
       <Prizes />
       <Collaborators />
+      <JudgesAndSpeakers />
       <Judging />
       <Participants />
       <WhyDevHack />
