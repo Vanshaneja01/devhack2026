@@ -42,7 +42,7 @@ const judgesList: Person[] = [
     name: "Yash Goyal",
     role: "Strategic Advisor",
     company: "DevHack Advisory",
-    image: "/images/yash.jpg",
+    image: "/images/yash-goyal.jpg",
     badge: "Strategic Advisor",
   },
   {

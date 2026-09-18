@@ -18,26 +18,31 @@ interface TierGroup {
 
 const partnerGroups: TierGroup[] = [
   {
-    tier: "Powered By",
-    badgeBg: "bg-blue-50",
-    badgeText: "text-blue-700",
-    badgeBorder: "border-blue-200",
+    tier: "Gold Sponsor",
+    badgeBg: "bg-amber-50",
+    badgeText: "text-amber-800",
+    badgeBorder: "border-amber-300",
     cardSize: "w-72 sm:w-80 h-32",
+    members: [
+      {
+        name: "Indian Bank",
+        logo: "/images/indian-bank.png",
+        url: "https://www.indianbank.in",
+      },
+    ],
+  },
+  {
+    tier: "Platform Partners",
+    badgeBg: "bg-indigo-50",
+    badgeText: "text-indigo-700",
+    badgeBorder: "border-indigo-200",
+    cardSize: "w-64 sm:w-72 h-28",
     members: [
       {
         name: "Unstop",
         logo: "/images/unstop.png",
         url: "https://unstop.com",
       },
-    ],
-  },
-  {
-    tier: "Platform Partner",
-    badgeBg: "bg-indigo-50",
-    badgeText: "text-indigo-700",
-    badgeBorder: "border-indigo-200",
-    cardSize: "w-64 sm:w-72 h-28",
-    members: [
       {
         name: "Work2Hire",
         logo: "/images/w2h.png",
@@ -84,14 +89,14 @@ export function Collaborators() {
         {/* Header matching Prizes section style */}
         <div className="text-center mb-16">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-orange-50 text-orange-600 border border-orange-200 shadow-sm">
-            Partners & Collaborators
+            Sponsors & Partners
           </span>
 
           <h2 className="mt-4 text-3xl sm:text-5xl font-extrabold tracking-tight text-slate-900">
-            OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-orange-500">COLLABORATORS</span>
+            OUR <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-orange-500">SPONSORS & PARTNERS</span>
           </h2>
           <p className="mt-3 text-slate-600 max-w-xl mx-auto text-sm sm:text-base">
-            Backed by incredible industry platforms and student developer communities.
+            Backed by leading organizations, industry platforms, and student developer communities.
           </p>
         </div>
 
