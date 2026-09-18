@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
 
@@ -34,14 +35,15 @@ export const Navbar: React.FC = () => {
   }, [mobileMenuOpen]);
 
   const navLinks = [
-    { name: "Home", href: "#hero" },
-    { name: "About", href: "#about" },
-    { name: "Tracks", href: "#tracks" },
-    { name: "Timeline", href: "#timeline" },
-    { name: "Judging", href: "#judging" },
-    { name: "Prizes", href: "#prizes" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Tracks", href: "/tracks" },
+    { name: "Timeline", href: "/timeline" },
+    { name: "Judges", href: "/judges" },
+    { name: "Prizes", href: "/prizes" },
+    { name: "Collaborators", href: "/collaborators" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -55,8 +57,8 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4">
           {/* Logo Area: DevHack Official Logo & GDG Logo Lockup */}
-          <a
-            href="#hero"
+          <Link
+            href="/"
             onClick={() => setMobileMenuOpen(false)}
             className="flex items-center gap-2 sm:gap-3 group shrink-0"
           >
@@ -85,18 +87,18 @@ export const Navbar: React.FC = () => {
                 priority
               />
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden xl:flex items-center gap-1 bg-slate-100/80 p-1.5 rounded-full border border-slate-200/70 text-sm font-semibold">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
-                className="px-3.5 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-white transition-all duration-200"
+                className="px-3 py-1.5 rounded-full text-slate-600 hover:text-blue-600 hover:bg-white transition-all duration-200"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -154,7 +156,7 @@ export const Navbar: React.FC = () => {
 
           <div className="grid grid-cols-2 gap-2 pb-4 border-b border-slate-100">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
@@ -162,7 +164,7 @@ export const Navbar: React.FC = () => {
               >
                 <span>{link.name}</span>
                 <span className="text-slate-400 text-xs">→</span>
-              </a>
+              </Link>
             ))}
           </div>
 

@@ -2,18 +2,20 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Heart } from "lucide-react";
 import { eventConfig } from "@/config/eventConfig";
 
 export const Footer: React.FC = () => {
   const quickLinks = [
-    { name: "About", href: "#about" },
-    { name: "Tracks", href: "#tracks" },
-    { name: "Timeline", href: "#timeline" },
-    { name: "Judging", href: "#judging" },
-    { name: "Prizes", href: "#prizes" },
-    { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "/about" },
+    { name: "Tracks", href: "/tracks" },
+    { name: "Timeline", href: "/timeline" },
+    { name: "Judges", href: "/judges" },
+    { name: "Prizes", href: "/prizes" },
+    { name: "Collaborators", href: "/collaborators" },
+    { name: "FAQ", href: "/faq" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -59,13 +61,13 @@ export const Footer: React.FC = () => {
             </h4>
             <div className="grid grid-cols-2 gap-2 text-sm">
               {quickLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   className="text-slate-300 hover:text-blue-400 transition-colors py-1 font-semibold"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </div>
